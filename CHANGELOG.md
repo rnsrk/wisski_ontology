@@ -31,7 +31,7 @@ Shortcut: Entity ── P71i is listed in ──▶ Authority_File
 - `Authority_Identifier` ⊑ `crm:E42_Identifier`: the identifier of a record within its authority file.
 - `Authority_Data_Retrieval` ⊑ `crmdig:D12_Data_Transfer_Event`: retrieval of a record from the provider's service (date, source endpoint).
 - German labels for `Authority_Data`, `Authority_Data_Type`, `Authority_Term`.
-- Ontology header: `owl:priorVersion` and `dcterms:license` (CC BY 4.0).
+- Ontology header: `owl:priorVersion`, `dcterms:license` (CC BY 4.0) and an extended `rdfs:comment` (en, de) describing purpose and covered areas.
 
 ### Changed
 - Removed imports of OntPreHer3D 2.1.28 and OntSciDoc3D 2.0.2. `M45 File Format` is already `Media_File_Format` ⊑ `crm:E55_Type`.
