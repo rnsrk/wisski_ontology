@@ -20,8 +20,6 @@
         <owl:imports rdf:resource="http://wiss-ki.eu/ontology/crminf/1.2.1/"/>
         <owl:imports rdf:resource="http://wiss-ki.eu/ontology/crmsci/3.0.1/"/>
         <owl:imports rdf:resource="http://wiss-ki.eu/ontology/lrmoo/1.1.1/"/>
-        <owl:imports rdf:resource="http://wiss-ki.eu/ontology/ontpreher3d/2.1.28/"/>
-        <owl:imports rdf:resource="http://wiss-ki.eu/ontology/ontscidoc3d/2.0.2/"/>
         <owl:versionIRI rdf:resource="http://wiss-ki.eu/ontology/default/2.6.0/"/>
         <owl:priorVersion rdf:resource="http://wiss-ki.eu/ontology/default/2.5.0/"/>
         <owl:versionInfo>2.6.0</owl:versionInfo>
@@ -956,6 +954,30 @@
         <rdfs:label xml:lang="de">beinhaltet ein Datum</rdfs:label>
         <rdfs:domain rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E52_Time-Span"/>
         <rdfs:range rdf:resource="http://wiss-ki.eu/ontology/default/Date"/>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="http://wiss-ki.eu/ontology/default/has_digital_carrier">
+        <rdfs:label xml:lang="en">has digital carrier</rdfs:label>
+        <rdfs:label xml:lang="de">hat digitalen Träger</rdfs:label>
+        <skos:notation>has_digital_carrier</skos:notation>
+        <skos:prefLabel xml:lang="en">has digital carrier</skos:prefLabel>
+        <rdfs:subPropertyOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/P130_shows_features_of"/>
+        <rdfs:domain rdf:resource="http://wiss-ki.eu/ontology/default/Digital_Media"/>
+        <rdfs:range rdf:resource="http://wiss-ki.eu/ontology/default/Media_File"/>
+        <owl:inverseOf rdf:resource="http://wiss-ki.eu/ontology/default/is_digital_carrier_of"/>
+        <rdfs:comment xml:lang="en">Links a digital media object, the immaterial content, to the media file that stores it, for example a JPEG, PDF or 3D file. One digital media object may be stored in several files. This is not a physical carrier such as a disk.</rdfs:comment>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="http://wiss-ki.eu/ontology/default/is_digital_carrier_of">
+        <rdfs:label xml:lang="en">is digital carrier of</rdfs:label>
+        <rdfs:label xml:lang="de">ist digitaler Träger von</rdfs:label>
+        <skos:notation>is_digital_carrier_of</skos:notation>
+        <skos:prefLabel xml:lang="en">is digital carrier of</skos:prefLabel>
+        <rdfs:subPropertyOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/P130i_features_are_also_found_on"/>
+        <rdfs:domain rdf:resource="http://wiss-ki.eu/ontology/default/Media_File"/>
+        <rdfs:range rdf:resource="http://wiss-ki.eu/ontology/default/Digital_Media"/>
+        <owl:inverseOf rdf:resource="http://wiss-ki.eu/ontology/default/has_digital_carrier"/>
+        <rdfs:comment xml:lang="en">Inverse of has digital carrier. The media file that stores a digital media object.</rdfs:comment>
     </owl:ObjectProperty>
 
     <!-- DATATYPE PROPERTIES -->

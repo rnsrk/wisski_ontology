@@ -26,6 +26,7 @@ Shortcut: Entity ── P71i is listed in ──▶ Authority_File
 ```
 
 ### Added
+- `has_digital_carrier` ⊑ `crm:P130_shows_features_of` (`Digital_Media` → `Media_File`) and its inverse `is_digital_carrier_of`. CRMdig only has `L19 stores` for a physical `D13 Digital Information Carrier`; the file that stores a digital object is not that. Replaces OntPreHer3D `R19` / `R19i`.
 - `Authority_File` ⊑ `crm:E32_Authority_Document`: the authority file, thesaurus or vocabulary as a whole (GND, AAT, TGN, ULAN, GeoNames, Wikidata, VIAF …).
 - `Authority_Identifier` ⊑ `crm:E42_Identifier`: the identifier of a record within its authority file.
 - `Authority_Data_Retrieval` ⊑ `crmdig:D12_Data_Transfer_Event`: retrieval of a record from the provider's service (date, source endpoint).
@@ -33,6 +34,7 @@ Shortcut: Entity ── P71i is listed in ──▶ Authority_File
 - Ontology header: `owl:priorVersion` and `dcterms:license` (CC BY 4.0).
 
 ### Changed
+- Removed imports of OntPreHer3D 2.1.28 and OntSciDoc3D 2.0.2. `M45 File Format` is already `Media_File_Format` ⊑ `crm:E55_Type`.
 - **Breaking:** `Authority_Data` is now a subclass of `crm:E31_Document` instead of `crm:E55_Type`. Instances are authority records that document an entity (`P70i is documented in`); they are no longer used as `P2 has type` targets. See *Migration* below.
 - `Authority_Term` is clarified as the authorised (preferred) form of a name in an authority record; variant forms use `Alternative_Name`.
 - `Authority_Data_Type` is clarified as the type of a record within its authority file (e.g. GND entity type, GeoNames feature code, Getty vocabulary).
@@ -46,6 +48,12 @@ Shortcut: Entity ── P71i is listed in ──▶ Authority_File
 - `Date_Operator`: label "Datumsoperator" was tagged `@en`, now `@de`.
 
 ### Migration
+Pathbuilder steps that used OntPreHer3D can be pointed at the WissKI ontology:
+
+- `…/OntPreHer3D/M45_File_Format` → `Media_File_Format` (the path stays `Media_File` — `P2 has type` — `Media_File_Format` — `P1 is identified by` — `E41 Appellation`).
+- `…/OntPreHer3D/R19_has_digital_carrier` → `has_digital_carrier`.
+- `…/OntPreHer3D/R19i_is_digital_carrier_of` → `is_digital_carrier_of`.
+
 Data that linked an entity to an `Authority_Data` instance with `P2 has type` can be moved to `P70i is documented in`:
 
 ```sparql
