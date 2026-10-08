@@ -1,0 +1,622 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<rdf:RDF xmlns="http://wiss-ki.eu/ontology/default/"
+     xml:base="http://wiss-ki.eu/ontology/default/"
+     xmlns:crm="http://www.cidoc-crm.org/cidoc-crm/"
+     xmlns:wisski="http://wiss-ki.eu/ontology/default/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+
+    <owl:Ontology rdf:about="http://wiss-ki.eu/ontology/default/">
+        <rdfs:comment xml:lang="en">Ontology with minimal set of concepts for a usage in a cultural heritage context based on CIDOC-CRM 7.1.3</rdfs:comment>
+        <rdfs:label xml:lang="en">WissKI Ontology 2.2.0</rdfs:label>
+        <owl:imports rdf:resource="http://wiss-ki.eu/ontology/crm/7.1.3/"/>
+        <owl:imports rdf:resource="http://wiss-ki.eu/ontology/crmdig/4.0/"/>
+        <owl:imports rdf:resource="http://wiss-ki.eu/ontology/lrmoo/1.1.1/"/>
+        <owl:versionIRI rdf:resource="http://wiss-ki.eu/ontology/default/2.3.0/"/>
+        <owl:versionInfo>2.3.0</owl:versionInfo>
+    </owl:Ontology>
+
+    <!-- CLASSES-->
+
+    <!-- new -->
+    <owl:Class rdf:about="http://wiss-ki.eu/ontology/default/Abbreviation">
+        <rdfs:label xml:lang="en">Abbreviation</rdfs:label>
+        <rdfs:label xml:lang="de">Abbreviation</rdfs:label>
+        <skos:notation>Abbreviation</skos:notation>
+        <skos:prefLabel xml:lang="en">Abbreviation</skos:prefLabel>
+        <rdfs:subClassOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E41_Appellation"/>
+        <rdfs:comment xml:lang="en">A shortened form of one word or multiple words (e.g. "e.g." for exempli gratia or "cm" for centimeter).)
+        </rdfs:comment>
+    </owl:Class>
+
+    <!-- new -->
+    <owl:Class rdf:about="http://wiss-ki.eu/ontology/default/Acronym">
+        <rdfs:label xml:lang="en">Acronym</rdfs:label>
+        <rdfs:label xml:lang="de">Acronym</rdfs:label>
+        <skos:notation>Acronym</skos:notation>
+        <skos:prefLabel xml:lang="en">Acronym</skos:prefLabel>
+        <rdfs:subClassOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E41_Appellation"/>
+        <rdfs:comment xml:lang="en">An abbreviation formed from the initial letters of other words and pronounced as a word (e.g. WissKI, SODa, GNM)
+        </rdfs:comment>
+    </owl:Class>
+
+    <!-- new -->
+    <owl:Class rdf:about="http://wiss-ki.eu/ontology/default/Acquisition_Type">
+        <rdfs:label xml:lang="en">Acquisition Type</rdfs:label>
+        <rdfs:label xml:lang="de">Erwerbstyp</rdfs:label>
+        <skos:notation>AcquisitionType</skos:notation>
+        <skos:prefLabel xml:lang="en">Acquisition Type</skos:prefLabel>
+        <rdfs:subClassOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E55_Type"/>
+        <rdfs:comment xml:lang="en">The type of an E8 Acquisition event, e.g. purchase, donation, gift, inheritance, exchange.</rdfs:comment>
+    </owl:Class>
+
+    <owl:Class rdf:about="http://wiss-ki.eu/ontology/default/Actor_Assignment">
+      <rdfs:label xml:lang="en">Actor Assignment</rdfs:label>
+      <rdfs:subClassOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E13_Attribute_Assignment"/>
+      <rdfs:comment xml:lang="en">Assign an actor (e.g. via a specific role) to an entity.</rdfs:comment>
+    </owl:Class>
+
+    <owl:Class rdf:about="http://wiss-ki.eu/ontology/default/Actor_Type">
+        <rdfs:label xml:lang="en">Actor Type</rdfs:label>
+        <skos:notation>ActorType</skos:notation>
+        <skos:prefLabel xml:lang="en">Actor Type</skos:prefLabel>
+        <rdfs:subClassOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E55_Type"/>
+        <rdfs:comment xml:lang="en">The type of an actor.</rdfs:comment>
+    </owl:Class>
+
+    <owl:Class rdf:about="http://wiss-ki.eu/ontology/default/Alternative_Name">
+        <rdfs:label xml:lang="en">Alternative Name</rdfs:label>
+        <rdfs:label xml:lang="de">Alternativer Name</rdfs:label>
+        <skos:notation>AlternativeName</skos:notation>
+        <skos:prefLabel xml:lang="en">Alternative Name</skos:prefLabel>
+        <rdfs:subClassOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E41_Appellation"/>
+        <rdfs:comment xml:lang="en">The alternative name of an entity.</rdfs:comment>
+    </owl:Class>
+
+    <owl:Class rdf:about="http://wiss-ki.eu/ontology/default/Annotation">
+        <rdfs:label xml:lang="en">Annotation</rdfs:label>
+        <rdfs:label xml:lang="de">Annotation</rdfs:label>
+        <skos:prefLabel xml:lang="en">Annotation</skos:prefLabel>
+        <rdfs:subClassOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E73_Information_Object"/>
+        <rdfs:comment xml:lang="en">Annotation of an entity.</rdfs:comment>
+    </owl:Class>
+
+    <owl:Class rdf:about="http://wiss-ki.eu/ontology/default/Assurance">
+        <rdfs:label xml:lang="en">Assurance</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E55_Type"/>
+        <rdfs:comment xml:lang="en">Reliability of the data.</rdfs:comment>
+    </owl:Class>
+
+    <owl:Class rdf:about="http://wiss-ki.eu/ontology/default/Authority_Data">
+        <rdfs:label xml:lang="en">Authority Data</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E55_Type"/>
+        <rdfs:comment xml:lang="en">Standardised data records that uniquely describe entities such as people, places or works in their semantic context.</rdfs:comment>
+    </owl:Class>
+
+    <owl:Class rdf:about="http://wiss-ki.eu/ontology/default/Authority_Data_Type">
+        <rdfs:label xml:lang="en">Authority Data Type</rdfs:label>
+        <skos:notation>AuthorityDataType</skos:notation>
+        <skos:prefLabel xml:lang="en">Authority Data Type</skos:prefLabel>
+        <rdfs:subClassOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E55_Type"/>
+        <rdfs:comment xml:lang="en">Subcategories of authority data.</rdfs:comment>
+    </owl:Class>
+
+    <owl:Class rdf:about="http://wiss-ki.eu/ontology/default/GND_Entity_Type">
+        <rdfs:label xml:lang="en">GND Entity Type</rdfs:label>
+        <skos:notation>GNDEntityType</skos:notation>
+        <skos:prefLabel xml:lang="en">GND Entity Type</skos:prefLabel>
+        <rdfs:subClassOf rdf:resource="http://wiss-ki.eu/ontology/default/Authority_Data_Type"/>
+        <rdfs:comment xml:lang="en">Subcategories of GND entities (Conference or event, Corporate body, Person, Place or geographical name, Building or Monument, Subject heading, Work) </rdfs:comment>
+    </owl:Class>
+
+    <owl:Class rdf:about="http://wiss-ki.eu/ontology/default/Geonames_Feature_Code_Type">
+        <rdfs:label xml:lang="en">Geonames Feature Code Type</rdfs:label>
+        <skos:notation>GeonamesFeatureCodeType</skos:notation>
+        <skos:prefLabel xml:lang="en">Geonames Feature Code Type</skos:prefLabel>
+        <rdfs:subClassOf rdf:resource="http://wiss-ki.eu/ontology/default/Authority_Data_Type"/>
+        <rdfs:comment xml:lang="en">Feature code of Geonames ("A country, state, region...; H stream, lake...; L parks,area...; P city, village...; R road, railroad; S spot, building, farm; T mountain, hill, rock...; U undersea; V forest, heath... ").</rdfs:comment>
+    </owl:Class>
+
+    <owl:Class rdf:about="http://wiss-ki.eu/ontology/default/Getty_Vocabulary_Type">
+        <rdfs:label xml:lang="en">Getty Vocabulary Type</rdfs:label>
+        <skos:notation>GettyVocabularyType</skos:notation>
+        <skos:prefLabel xml:lang="en">Getty Vocabulary Type</skos:prefLabel>
+        <rdfs:subClassOf rdf:resource="http://wiss-ki.eu/ontology/default/Authority_Data_Type"/>
+        <rdfs:comment xml:lang="en">Subcategories of Getty Vocabulary (AAT, TGN, ULAN).</rdfs:comment>
+    </owl:Class>
+
+    <owl:Class rdf:about="http://wiss-ki.eu/ontology/default/Custom_Term_Type">
+        <rdfs:label xml:lang="en">Custom Term Type</rdfs:label>
+        <skos:notation>CustomTermType</skos:notation>
+        <skos:prefLabel xml:lang="en">Custom Term Type</skos:prefLabel>
+        <rdfs:subClassOf rdf:resource="http://wiss-ki.eu/ontology/default/Authority_Data_Type"/>
+        <rdfs:comment xml:lang="en">Subcategories of custom terms.</rdfs:comment>
+    </owl:Class>
+
+    <owl:Class rdf:about="http://wiss-ki.eu/ontology/default/Authority_Term">
+        <rdfs:label xml:lang="en">Authority Term</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E41_Appellation"/>
+        <rdfs:comment xml:lang="en">A form of controlled vocabulary that consists of information on entities.</rdfs:comment>
+    </owl:Class>
+
+    <owl:Class rdf:about="http://wiss-ki.eu/ontology/default/Bibliographical_Info">
+        <rdfs:label xml:lang="en">Bibliographical Info</rdfs:label>
+        <rdfs:label xml:lang="de">Bibliographische Angaben</rdfs:label>
+        <skos:notation>BibliographicalInfo</skos:notation>
+        <skos:prefLabel xml:lang="en">Bibliographical Info</skos:prefLabel>
+        <rdfs:subClassOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E33_Linguistic_Object"/>
+        <rdfs:comment xml:lang="en">Structured bibliographic metadata for a publication: place, date, publisher, volume, edition, and extra notes. Use P3 has note for the combined or structured content.</rdfs:comment>
+    </owl:Class>
+
+    <owl:Class rdf:about="http://wiss-ki.eu/ontology/default/Begin">
+        <rdfs:label xml:lang="en">Begin</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E5_Event"/>
+        <rdfs:comment xml:lang="en">The beginning of an activity.</rdfs:comment>
+    </owl:Class>
+
+    <owl:Class rdf:about="http://wiss-ki.eu/ontology/default/Comment">
+        <rdfs:label xml:lang="en">Comment</rdfs:label>
+        <rdfs:label xml:lang="de">Kommentart</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E33_Linguistic_Object"/>
+        <rdfs:comment xml:lang="en">This class comprises identifiable expressions in natural language or languages that are used to provide additional information about a particular subject.
+        </rdfs:comment>
+    </owl:Class>
+
+    <owl:Class rdf:about="http://wiss-ki.eu/ontology/default/Cultural_Heritage_Item">
+        <rdfs:label xml:lang="en">Cultural Heritage Item</rdfs:label>
+        <skos:notation>CulturalHeritageItem</skos:notation>
+        <skos:prefLabel xml:lang="en">Cultural Heritage Item</skos:prefLabel>
+        <rdfs:subClassOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E22_Human-Made_Object"/>
+        <rdfs:comment xml:lang="en">This class comprises all physical objects that are part of cultural heritage collections, exhibitions, or architectural structures. It includes:
+    - Items in collections of any collecting purpose
+    - Objects in museum contexts
+    - Architectural structures (buildings, bridges, cathedrals)
+    - Biological or geological objects that have been prepared and selected for exhibition or collection purposes
+
+    The class represents objects that have been intentionally chosen and preserved as part of cultural heritage, regardless of their original creation context or physical nature.
+        </rdfs:comment>
+    </owl:Class>
+
+    <owl:Class rdf:about="http://wiss-ki.eu/ontology/default/Custom_Term">
+        <rdfs:label xml:lang="en">Custom Term</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E41_Appellation"/>
+        <rdfs:comment xml:lang="en">A custom term to label entities.</rdfs:comment>
+    </owl:Class>
+
+    <owl:Class rdf:about="http://wiss-ki.eu/ontology/default/Data_Object">
+        <rdfs:label xml:lang="en">Data Object</rdfs:label>
+        <rdfs:label xml:lang="de">Datenobjekt</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E73_Information_Object"/>
+        <rdfs:comment xml:lang="en" rdf:datatype="http://www.w3.org/2001/XMLSchema#string">This class comprises instances of D1 Digital Object that are the direct result of a digital
+    measurement or a formal derivative of it, containing quantitative properties of some physical
+    things or other constellations of matter.</rdfs:comment>
+    </owl:Class>
+
+    <owl:Class rdf:about="http://wiss-ki.eu/ontology/default/Data_Record">
+        <rdfs:label xml:lang="en">Data Record</rdfs:label>
+        <skos:prefLabel xml:lang="en">Data Record</skos:prefLabel>
+        <rdfs:subClassOf rdf:resource="http://www.cidoc-crm.org/extensions/crmdig/D9_Data_Object"/>
+        <rdfs:comment xml:lang="en">A record of data created by the process of digitization.</rdfs:comment>
+    </owl:Class>
+
+    <!-- new -->
+    <owl:Class rdf:about="http://wiss-ki.eu/ontology/default/Data_Record_Type">
+        <rdfs:label xml:lang="en">Data Record Type</rdfs:label>
+        <rdfs:label xml:lang="de">Datensatztyp</rdfs:label>
+        <skos:prefLabel xml:lang="en">Data Record Type</skos:prefLabel>
+        <rdfs:subClassOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E55_Type"/>
+        <rdfs:comment xml:lang="en">The type of a data record, like "single", "group" etc.</rdfs:comment>
+    </owl:Class>
+
+    <owl:Class rdf:about="http://wiss-ki.eu/ontology/default/Date_Assignment">
+        <rdfs:label xml:lang="en">Date Assignment</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E13_Attribute_Assignment"/>
+        <rdfs:comment xml:lang="en">Assign a date and date details to an entity.</rdfs:comment>
+    </owl:Class>
+
+    <!-- new -->
+    <owl:Class rdf:about="http://wiss-ki.eu/ontology/default/Date_Period">
+        <rdfs:label xml:lang="en">Date Period</rdfs:label>
+        <rdfs:label xml:lang="de">Datumszeitraum</rdfs:label>
+        <skos:notation>DatePeriod</skos:notation>
+        <skos:prefLabel xml:lang="en">Date Period</skos:prefLabel>
+        <rdfs:subClassOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E4_Period"/>
+        <rdfs:comment xml:lang="en">A period whose boundaries are defined by Date instances (begin and end). Unlike Ownership, Custody, and Stay which are bounded by events, Date_Period is used for date measurements and time-spans expressed as calendar dates, e.g. "1800–1850" or "January 1923 – March 1925". Use has_begin_date and has_end_date to link to Date instances.</rdfs:comment>
+    </owl:Class>
+
+    <!-- new -->
+    <owl:Class rdf:about="http://wiss-ki.eu/ontology/default/Date_Period_Type">
+        <rdfs:label xml:lang="en">Date Period Type</rdfs:label>
+        <rdfs:label xml:lang="de">Datumszeitraumtyp</rdfs:label>
+        <skos:notation>DatePeriodType</skos:notation>
+        <skos:prefLabel xml:lang="en">Date Period Type</skos:prefLabel>
+        <rdfs:subClassOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E55_Type"/>
+        <rdfs:comment xml:lang="en">The type of a date period, e.g. production period, dating range, lifespan, exhibition period.</rdfs:comment>
+    </owl:Class>
+
+    <owl:Class rdf:about="http://wiss-ki.eu/ontology/default/Date">
+        <rdfs:label xml:lang="en">Date</rdfs:label>
+        <rdfs:label xml:lang="de">Datum</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E52_Time-Span"/>
+        <rdfs:comment xml:lang="en" rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A time specification consisting of day and/or month and/or year and/or date verbalisation.</rdfs:comment>
+    </owl:Class>
+
+    <!-- new -->
+    <owl:Class rdf:about="http://wiss-ki.eu/ontology/default/Date_Operator">
+        <rdfs:label xml:lang="en">Date Operator</rdfs:label>
+        <rdfs:label xml:lang="en">Datumsoperator</rdfs:label>
+        <skos:notation>DateOperator</skos:notation>
+        <skos:prefLabel xml:lang="en">Date Operator</skos:prefLabel>
+        <rdfs:subClassOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E55_Type"/>
+        <rdfs:comment xml:lang="en"></rdfs:comment>
+    </owl:Class>
+
+    <owl:Class rdf:about="http://wiss-ki.eu/ontology/default/Day">
+        <rdfs:label xml:lang="en">Day</rdfs:label>
+        <rdfs:label xml:lang="de">Tag</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://wiss-ki.eu/ontology/default/Date"/>
+        <rdfs:comment xml:lang="en" rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A day in numeric notation like 1, 5, 29.</rdfs:comment>
+    </owl:Class>
+
+    <owl:Class rdf:about="http://wiss-ki.eu/ontology/default/Description">
+        <rdfs:label xml:lang="en">Description</rdfs:label>
+        <rdfs:label xml:lang="de">Beschreibung</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E33_Linguistic_Object"/>
+        <rdfs:comment xml:lang="en">A textual description of features and attributes of something.</rdfs:comment>
+    </owl:Class>
+
+    <!-- new -->
+    <owl:Class rdf:about="http://wiss-ki.eu/ontology/default/Dimension_Type">
+        <rdfs:label xml:lang="en">Dimension Type</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E55_Type"/>
+        <rdfs:comment xml:lang="en">A geometric dimension of an object.</rdfs:comment>
+    </owl:Class>
+
+    <owl:Class rdf:about="http://wiss-ki.eu/ontology/default/End">
+        <rdfs:label xml:lang="en">End</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E5_Event"/>
+        <rdfs:comment xml:lang="en">The end of an activity.</rdfs:comment>
+    </owl:Class>
+
+    <!-- new -->
+    <owl:Class rdf:about="http://wiss-ki.eu/ontology/default/Event_Type">
+        <rdfs:label xml:lang="en">Event Type</rdfs:label>
+        <rdfs:label xml:lang="de">Ereignistyp</rdfs:label>
+        <skos:notation>EventType</skos:notation>
+        <skos:prefLabel xml:lang="en">Event Type</skos:prefLabel>
+        <rdfs:subClassOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E55_Type"/>
+        <rdfs:comment xml:lang="en">The type of an E5 Event, e.g. change of legal status, finding, production.</rdfs:comment>
+    </owl:Class>
+
+    <owl:Class rdf:about="http://wiss-ki.eu/ontology/default/Image">
+        <rdfs:label xml:lang="en">Image</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E36_Visual_Item"/>
+        <rdfs:comment xml:lang="en">Kind of visual representation of an object like a (digital) photography.</rdfs:comment>
+    </owl:Class>
+
+    <!-- new -->
+    <owl:Class rdf:about="http://wiss-ki.eu/ontology/default/Inventory_Identifier">
+        <rdfs:label xml:lang="en">Inventory Identifier</rdfs:label>
+        <rdfs:label xml:lang="de">Inventar-ID</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E42_Identifier"/>
+        <rdfs:comment xml:lang="en" rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The number or string, which identifies an object within the context of an institution or organisation, like "12345" or "abc-12345".</rdfs:comment>
+    </owl:Class>
+
+    <owl:Class rdf:about="http://wiss-ki.eu/ontology/default/Item_History_Activity">
+        <rdfs:label xml:lang="en">Item History Activity</rdfs:label>
+        <skos:notation>ItemHistoryActivity</skos:notation>
+        <skos:prefLabel xml:lang="en">Item History Activity</skos:prefLabel>
+        <rdfs:subClassOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E7_Activity"/>
+        <rdfs:comment xml:lang="en">
+    This class comprises all activities that document the history and life cycle of cultural heritage items. It includes:
+    - Transformations and modifications of items
+    - Changes of ownership and possession
+    - Exhibition history and display events
+    - Conservation and restoration activities
+    - Movements and transfers between locations
+    - Documentation and research activities
+    - Acquisition and deaccession events
+
+    These activities are carried out by actors (E39_Actor) and result in changes to the physical, legal, or contextual state of the object. Each activity can be associated with specific time periods and locations.
+        </rdfs:comment>
+    </owl:Class>
+
+    <owl:Class rdf:about="http://wiss-ki.eu/ontology/default/Keyword">
+        <rdfs:label xml:lang="en">Keyword</rdfs:label>
+        <skos:notation>Keyword</skos:notation>
+        <skos:prefLabel xml:lang="en">Keyword</skos:prefLabel>
+        <rdfs:subClassOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E55_Type"/>
+        <rdfs:comment xml:lang="en">This class comprises terms, concepts, or classifications that can be assigned to objects, records, or other entities to facilitate searching, browsing, or categorization.
+        </rdfs:comment>
+    </owl:Class>
+
+
+    <owl:Class rdf:about="http://wiss-ki.eu/ontology/default/Media_Assignment">
+        <rdfs:label xml:lang="en">Media Assignment</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E13_Attribute_Assignment"/>
+        <rdfs:comment xml:lang="en">Assign Media to an entity.</rdfs:comment>
+    </owl:Class>
+
+    <owl:Class rdf:about="http://wiss-ki.eu/ontology/default/Media_File">
+        <rdfs:label xml:lang="en">Media File</rdfs:label>
+        <skos:notation>MediaFile</skos:notation>
+        <skos:prefLabel xml:lang="en">Media File</skos:prefLabel>
+        <rdfs:subClassOf rdf:resource="http://www.cidoc-crm.org/extensions/crmdig/D9_Data_Object"/>
+        <rdfs:comment xml:lang="en">This class comprises digital files containing media content such as images, audio, video, or other multimedia formats.
+    These files are stored in digital form and can be accessed, processed, and disseminated through digital systems. The class includes both original media files and their digital reproductions or derivatives.
+        </rdfs:comment>
+    </owl:Class>
+
+    <!-- new -->
+    <owl:Class rdf:about="http://wiss-ki.eu/ontology/default/Media_Type">
+        <rdfs:label xml:lang="en">Media Type</rdfs:label>
+        <rdfs:label xml:lang="de">Medientyp</rdfs:label>
+        <skos:notation>MediaType</skos:notation>
+        <skos:prefLabel xml:lang="en">Media Type</skos:prefLabel>
+        <rdfs:subClassOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E55_Type"/>
+        <rdfs:comment xml:lang="en">The type of a media, like "audio", "image", "text", "video" etc.</rdfs:comment>
+    </owl:Class>
+
+
+    <owl:Class rdf:about="http://wiss-ki.eu/ontology/default/Month">
+        <rdfs:subClassOf rdf:resource="http://wiss-ki.eu/ontology/default/Date"/>
+        <rdfs:label xml:lang="en">Month</rdfs:label>
+        <rdfs:label xml:lang="de">Monat</rdfs:label>
+        <rdfs:comment xml:lang="en" rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A month in numeric notation like 3, 8, 12.</rdfs:comment>
+    </owl:Class>
+
+    <!-- new -->
+    <owl:Class rdf:about="http://wiss-ki.eu/ontology/default/Move_Type">
+        <rdfs:label xml:lang="en">Move Type</rdfs:label>
+        <rdfs:label xml:lang="de">Bewegungstyp</rdfs:label>
+        <skos:notation>MoveType</skos:notation>
+        <skos:prefLabel xml:lang="en">Move Type</skos:prefLabel>
+        <rdfs:subClassOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E55_Type"/>
+        <rdfs:comment xml:lang="en">The type of an E9 Move event, e.g. relocation, transport, loan return.</rdfs:comment>
+    </owl:Class>
+
+    <owl:Class rdf:about="http://wiss-ki.eu/ontology/default/Note">
+        <rdfs:label xml:lang="en">Note</rdfs:label>
+        <rdfs:label xml:lang="de">Notiz</rdfs:label>
+        <skos:prefLabel xml:lang="en">Note</skos:prefLabel>
+        <rdfs:subClassOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E33_Linguistic_Object"/>
+        <rdfs:comment xml:lang="en">Additional (internal) information about something.</rdfs:comment>
+    </owl:Class>
+
+    <owl:Class rdf:about="http://wiss-ki.eu/ontology/default/Occupation">
+        <rdfs:label xml:lang="en">Occupation</rdfs:label>
+        <skos:notation>Occupation</skos:notation>
+        <skos:prefLabel xml:lang="en">Occupation</skos:prefLabel>
+        <rdfs:subClassOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E7_Activity"/>
+        <rdfs:comment xml:lang="en">The occupation of an actor.</rdfs:comment>
+    </owl:Class>
+
+    <!-- new -->
+    <owl:Class rdf:about="http://wiss-ki.eu/ontology/default/Custody">
+        <rdfs:label xml:lang="en">Custody</rdfs:label>
+        <rdfs:label xml:lang="de">Gewahrsam</rdfs:label>
+        <skos:notation>Custody</skos:notation>
+        <skos:prefLabel xml:lang="en">Custody</skos:prefLabel>
+        <rdfs:subClassOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E4_Period"/>
+        <rdfs:comment xml:lang="en">A period of physical custody bounded by E10 Transfer of Custody events. Falls within an Ownership period. Custody may contain Stay periods via P10i contains.</rdfs:comment>
+    </owl:Class>
+
+    <!-- new -->
+    <owl:Class rdf:about="http://wiss-ki.eu/ontology/default/Custody_Type">
+        <rdfs:label xml:lang="en">Custody Type</rdfs:label>
+        <rdfs:label xml:lang="de">Gewahrsamstyp</rdfs:label>
+        <skos:notation>CustodyType</skos:notation>
+        <skos:prefLabel xml:lang="en">Custody Type</skos:prefLabel>
+        <rdfs:subClassOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E55_Type"/>
+        <rdfs:comment xml:lang="en">The type of a Custody period.</rdfs:comment>
+    </owl:Class>
+
+    <owl:Class rdf:about="http://wiss-ki.eu/ontology/default/Organisation_Type">
+        <rdfs:label xml:lang="en">Organisation Type</rdfs:label>
+        <skos:notation>OrganisationType</skos:notation>
+        <skos:prefLabel xml:lang="en">Organisation Type</skos:prefLabel>
+        <rdfs:subClassOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E55_Type"/>
+        <rdfs:comment xml:lang="en">The type of an organisation.</rdfs:comment>
+    </owl:Class>
+
+    <!-- new -->
+    <owl:Class rdf:about="http://wiss-ki.eu/ontology/default/Organised_Event">
+        <rdfs:label xml:lang="en">Organised Event</rdfs:label>
+        <rdfs:label xml:lang="de">Veranstaltung</rdfs:label>
+        <skos:notation>OrganisedEvent</skos:notation>
+        <skos:prefLabel xml:lang="en">Organised Event</skos:prefLabel>
+        <rdfs:subClassOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E5_Event"/>
+        <rdfs:comment xml:lang="en">A planned, organised event (Veranstaltung) such as auction, trade fair, exhibition, conference.</rdfs:comment>
+    </owl:Class>
+
+    <!-- new -->
+    <owl:Class rdf:about="http://wiss-ki.eu/ontology/default/Organised_Event_Type">
+        <rdfs:label xml:lang="en">Organised Event Type</rdfs:label>
+        <rdfs:label xml:lang="de">Veranstaltungstyp</rdfs:label>
+        <skos:notation>OrganisedEventType</skos:notation>
+        <skos:prefLabel xml:lang="en">Organised Event Type</skos:prefLabel>
+        <rdfs:subClassOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E55_Type"/>
+        <rdfs:comment xml:lang="en">The type of an Organised Event, e.g. auction, trade fair, exhibition, conference, symposium.</rdfs:comment>
+    </owl:Class>
+
+    <!-- new -->
+    <owl:Class rdf:about="http://wiss-ki.eu/ontology/default/Ownership">
+        <rdfs:label xml:lang="en">Ownership</rdfs:label>
+        <rdfs:label xml:lang="de">Eigentum</rdfs:label>
+        <skos:notation>Ownership</skos:notation>
+        <skos:prefLabel xml:lang="en">Ownership</skos:prefLabel>
+        <rdfs:subClassOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E4_Period"/>
+        <rdfs:comment xml:lang="en">A period of legal ownership bounded by E8 Acquisition events. Ownership may contain Custody periods via P10i contains.</rdfs:comment>
+    </owl:Class>
+
+    <!-- new -->
+    <owl:Class rdf:about="http://wiss-ki.eu/ontology/default/Stay">
+        <rdfs:label xml:lang="en">Stay</rdfs:label>
+        <rdfs:label xml:lang="de">Aufenthalt</rdfs:label>
+        <skos:notation>Stay</skos:notation>
+        <skos:prefLabel xml:lang="en">Stay</skos:prefLabel>
+        <rdfs:subClassOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E4_Period"/>
+        <rdfs:comment xml:lang="en">A period when an object resides at a location, bounded by E9 Move events. Falls within a Custody period.</rdfs:comment>
+    </owl:Class>
+
+    <!-- new -->
+    <owl:Class rdf:about="http://wiss-ki.eu/ontology/default/Stay_Type">
+        <rdfs:label xml:lang="en">Stay Type</rdfs:label>
+        <rdfs:label xml:lang="de">Aufenthaltstyp</rdfs:label>
+        <skos:notation>StayType</skos:notation>
+        <skos:prefLabel xml:lang="en">Stay Type</skos:prefLabel>
+        <rdfs:subClassOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E55_Type"/>
+        <rdfs:comment xml:lang="en">The type of a Stay period.</rdfs:comment>
+    </owl:Class>
+
+    <owl:Class rdf:about="http://wiss-ki.eu/ontology/default/Period_Assignment">
+        <rdfs:label xml:lang="en">Period Assignment</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E13_Attribute_Assignment"/>
+        <rdfs:comment xml:lang="en">Assign a time period to an entity.</rdfs:comment>
+    </owl:Class>
+
+    <!-- new -->
+    <owl:Class rdf:about="http://wiss-ki.eu/ontology/default/Place_Type">
+        <rdfs:label xml:lang="en">Place Type</rdfs:label>
+        <rdfs:label xml:lang="de">Ortstyp</rdfs:label>
+        <skos:notation>PlaceType</skos:notation>
+        <skos:prefLabel xml:lang="en">Place Type</skos:prefLabel>
+        <rdfs:subClassOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E55_Type"/>
+        <rdfs:comment xml:lang="en">The type of an E53 Place, e.g. shelving, rooms, spaces, street address, political divisions, inhabited places, cities, provinces, countries.</rdfs:comment>
+    </owl:Class>
+
+    <owl:Class rdf:about="http://wiss-ki.eu/ontology/default/Precision">
+        <rdfs:label xml:lang="en">Precision</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E55_Type"/>
+        <rdfs:comment xml:lang="en">The precision of the recorded data.</rdfs:comment>
+    </owl:Class>
+
+    <owl:Class rdf:about="http://wiss-ki.eu/ontology/default/Preferred_Name">
+        <rdfs:label xml:lang="en">Preferred Name</rdfs:label>
+        <rdfs:label xml:lang="de">Bevorzugter Name</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E41_Appellation"/>
+        <rdfs:comment xml:lang="en" rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The commonly used name to identify something.</rdfs:comment>
+    </owl:Class>
+
+    <owl:Class rdf:about="http://wiss-ki.eu/ontology/default/Informational_Source_Type">
+        <rdfs:label xml:lang="en">Informational Source Type</rdfs:label>
+        <rdfs:label xml:lang="de">Informationsquellentyp</rdfs:label>
+        <skos:notation>InformationalSourceType</skos:notation>
+        <skos:prefLabel xml:lang="en">Informational Source Type</skos:prefLabel>
+        <rdfs:subClassOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E55_Type"/>
+        <rdfs:comment xml:lang="en">Type of an Informational Source, e.g. book, journal, article, video, audio, image, etc.</rdfs:comment>
+    </owl:Class>
+
+    <owl:Class rdf:about="http://wiss-ki.eu/ontology/default/Role">
+        <rdfs:label xml:lang="en">Role</rdfs:label>
+        <skos:notation>Role</skos:notation>
+        <skos:prefLabel xml:lang="en">Role</skos:prefLabel>
+        <rdfs:subClassOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E55_Type"/>
+        <rdfs:comment xml:lang="en">The role of an actor.</rdfs:comment>
+    </owl:Class>
+
+    <owl:Class rdf:about="http://wiss-ki.eu/ontology/default/Section">
+        <rdfs:label xml:lang="en">Section</rdfs:label>
+        <rdfs:label xml:lang="de">Ausschnitt</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E53_Place"/>
+        <rdfs:comment> A section of text, image, or other object in a sense of division or spatial delimitation.</rdfs:comment>
+    </owl:Class>
+
+    <owl:Class rdf:about="http://wiss-ki.eu/ontology/default/Source">
+        <rdfs:label xml:lang="en">Source</rdfs:label>
+        <rdfs:label xml:lang="de">Quelle</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E31_Document"/>
+        <rdfs:comment> A source of information, e.g. a book or internet ressource or a person.</rdfs:comment>
+    </owl:Class>
+
+    <owl:Class rdf:about="http://wiss-ki.eu/ontology/default/Informational_Source">
+        <rdfs:label xml:lang="en">Informational Source</rdfs:label>
+        <rdfs:label xml:lang="de">Informationsquelle</rdfs:label>
+        <skos:notation>InformationalSource</skos:notation>
+        <skos:prefLabel xml:lang="en">Informational Source</skos:prefLabel>
+        <rdfs:subClassOf rdf:resource="http://iflastandards.info/ns/lrm/lrmoo/F3_Manifestation"/>
+        <rdfs:comment xml:lang="en">Any source of information (i.e. text, video, audio) which contains further information about an entity. Use P2 has type with Informational_Source_Type to specify the kind.</rdfs:comment>
+    </owl:Class>
+
+    <owl:Class rdf:about="http://wiss-ki.eu/ontology/default/Spatial_Coordinates">
+        <rdfs:label xml:lang="en">Spatial Coordinates</rdfs:label>
+        <rdfs:label xml:lang="de">Geo-Koordinaten</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E41_Appellation"/>
+        <rdfs:comment xml:lang="en" rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The coordinates of a place.</rdfs:comment>
+    </owl:Class>
+
+    <owl:Class rdf:about="http://wiss-ki.eu/ontology/default/Status">
+        <rdfs:label xml:lang="en">Status</rdfs:label>
+        <rdfs:label xml:lang="de">Status</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E55_Type"/>
+        <rdfs:comment xml:lang="en">The status of an entity, e.g. published, draft, current, deprecated, option, version etc.</rdfs:comment>
+    </owl:Class>
+
+    <owl:Class rdf:about="http://wiss-ki.eu/ontology/default/Title_Assignment">
+      <rdfs:label xml:lang="en">Title Assignment</rdfs:label>
+      <rdfs:subClassOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E13_Attribute_Assignment"/>
+      <rdfs:comment xml:lang="en">Assign a title and title details to a record.</rdfs:comment>
+    </owl:Class>
+
+    <!-- new -->
+    <owl:Class rdf:about="http://wiss-ki.eu/ontology/default/Transfer_of_Custody_Type">
+        <rdfs:label xml:lang="en">Transfer of Custody Type</rdfs:label>
+        <rdfs:label xml:lang="de">Gewahrsamsübertragungstyp</rdfs:label>
+        <skos:notation>TransferOfCustodyType</skos:notation>
+        <skos:prefLabel xml:lang="en">Transfer of Custody Type</skos:prefLabel>
+        <rdfs:subClassOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E55_Type"/>
+        <rdfs:comment xml:lang="en">The type of an E10 Transfer of Custody event, e.g. loan, deposit, accession, deaccession.</rdfs:comment>
+    </owl:Class>
+
+    <owl:Class rdf:about="http://wiss-ki.eu/ontology/default/URL">
+        <rdfs:label xml:lang="en">URL</rdfs:label>
+        <rdfs:label xml:lang="de">URL</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E42_Identifier"/>
+        <rdfs:comment xml:lang="en" rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A Uniform Resource Locator (URL) is a reference to a web resource that specifies its location on a computer network and a mechanism for retrieving it.</rdfs:comment>
+    </owl:Class>
+
+    <owl:Class rdf:about="http://wiss-ki.eu/ontology/default/UUID">
+        <rdfs:label xml:lang="en">UUID</rdfs:label>
+        <rdfs:label xml:lang="de">UUID</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E42_Identifier"/>
+        <rdfs:comment xml:lang="en" rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A Universally Unique Identifier (UUID) is a 128-bit number used to identify information.</rdfs:comment>
+    </owl:Class>
+
+    <owl:Class rdf:about="http://wiss-ki.eu/ontology/default/Visibility">
+        <rdfs:label xml:lang="en">Visibility</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E55_Type"/>
+        <rdfs:comment xml:lang="en">The visibility of a Title Assignment.</rdfs:comment>
+    </owl:Class>
+
+    <owl:Class rdf:about="http://wiss-ki.eu/ontology/default/Year">
+        <rdfs:label xml:lang="en">Year</rdfs:label>
+        <rdfs:label xml:lang="de">Jahr</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://wiss-ki.eu/ontology/default/Date"/>
+        <rdfs:comment xml:lang="en" rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A year in a numeric notation like -1000, 53, 2023.</rdfs:comment>
+    </owl:Class>
+
+
+    <!-- OBJECT PROPERTIES -->
+
+    <owl:ObjectProperty rdf:about="http://wiss-ki.eu/ontology/default/has_some_date_within">
+        <rdfs:comment xml:lang="en" rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A date within a time span.</rdfs:comment>
+        <rdfs:label xml:lang="en">has some date within</rdfs:label>
+        <rdfs:label xml:lang="de">beinhaltet ein Datum</rdfs:label>
+        <rdfs:domain rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E52_Time-Span"/>
+        <rdfs:range rdf:resource="http://wiss-ki.eu/ontology/default/Date"/>
+    </owl:ObjectProperty>
+
+    <!-- DATATYPE PROPERTIES -->
+
+    <!-- ANNOTATIONS -->
+
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.13) https://github.com/owlcs/owlapi -->
+
