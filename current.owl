@@ -8,11 +8,13 @@
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+     xmlns:dcterms="http://purl.org/dc/terms/"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
 
     <owl:Ontology rdf:about="http://wiss-ki.eu/ontology/default/">
         <rdfs:comment xml:lang="en">Ontology with minimal set of concepts for a usage in a cultural heritage context based on CIDOC-CRM 7.1.3</rdfs:comment>
-        <rdfs:label xml:lang="en">WissKI Ontology 2.5.0</rdfs:label>
+        <rdfs:label xml:lang="en">WissKI Ontology 2.6.0</rdfs:label>
+        <dcterms:license rdf:resource="https://creativecommons.org/licenses/by/4.0/"/>
         <owl:imports rdf:resource="http://wiss-ki.eu/ontology/crm/7.1.3/"/>
         <owl:imports rdf:resource="http://wiss-ki.eu/ontology/crmdig/4.0/"/>
         <owl:imports rdf:resource="http://wiss-ki.eu/ontology/crminf/1.2.1/"/>
@@ -20,8 +22,9 @@
         <owl:imports rdf:resource="http://wiss-ki.eu/ontology/lrmoo/1.1.1/"/>
         <owl:imports rdf:resource="http://wiss-ki.eu/ontology/ontpreher3d/2.1.28/"/>
         <owl:imports rdf:resource="http://wiss-ki.eu/ontology/ontscidoc3d/2.0.2/"/>
-        <owl:versionIRI rdf:resource="http://wiss-ki.eu/ontology/default/2.5.0/"/>
-        <owl:versionInfo>2.5.0</owl:versionInfo>
+        <owl:versionIRI rdf:resource="http://wiss-ki.eu/ontology/default/2.6.0/"/>
+        <owl:priorVersion rdf:resource="http://wiss-ki.eu/ontology/default/2.5.0/"/>
+        <owl:versionInfo>2.6.0</owl:versionInfo>
     </owl:Ontology>
 
     <!-- CLASSES-->
@@ -152,22 +155,59 @@
 
     <owl:Class rdf:about="http://wiss-ki.eu/ontology/default/Authority_Data">
         <rdfs:label xml:lang="en">Authority Data</rdfs:label>
-        <rdfs:subClassOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E55_Type"/>
-        <rdfs:comment xml:lang="en">Standardised data records that uniquely describe entities such as people, places or works in their semantic context.</rdfs:comment>
+        <rdfs:label xml:lang="de">Normdatum</rdfs:label>
+        <skos:notation>AuthorityData</skos:notation>
+        <skos:prefLabel xml:lang="en">Authority Data</skos:prefLabel>
+        <skos:altLabel xml:lang="en">Authority Record</skos:altLabel>
+        <skos:altLabel xml:lang="de">Normdatensatz</skos:altLabel>
+        <rdfs:subClassOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E31_Document"/>
+        <rdfs:comment xml:lang="en">A single standardised record of an Authority File (e.g. a GND, AAT, TGN, ULAN, GeoNames or Wikidata record) that uniquely documents an entity such as a person, group, place, work or concept. The documented entity points to the record with P70i is documented in. The record is identified by its Authority_Identifier and its URL, and carries its authorised form as Authority_Term and its variant forms as Alternative_Name (all via P1 is identified by). It forms part of its Authority_File (P106i forms part of) and is classified by an Authority_Data_Type (P2 has type). Its retrieval from the provider is documented with Authority_Data_Retrieval (P16i was used for).</rdfs:comment>
+        <rdfs:comment xml:lang="de">Ein einzelner normierter Datensatz einer Normdatei (z. B. ein Datensatz aus GND, AAT, TGN, ULAN, GeoNames oder Wikidata), der eine Entität wie eine Person, Gruppe, einen Ort, ein Werk oder einen Begriff eindeutig dokumentiert. Die dokumentierte Entität verweist über P70i is documented in auf den Datensatz. Der Datensatz wird über Authority_Identifier und URL identifiziert und trägt seine Ansetzungsform als Authority_Term sowie Varianten als Alternative_Name (jeweils über P1 is identified by). Er ist Teil seiner Authority_File (P106i forms part of) und wird über Authority_Data_Type klassifiziert (P2 has type). Der Abruf beim Anbieter wird mit Authority_Data_Retrieval dokumentiert (P16i was used for).</rdfs:comment>
+    </owl:Class>
+
+    <owl:Class rdf:about="http://wiss-ki.eu/ontology/default/Authority_Data_Retrieval">
+        <rdfs:label xml:lang="en">Authority Data Retrieval</rdfs:label>
+        <rdfs:label xml:lang="de">Normdatenabruf</rdfs:label>
+        <skos:notation>AuthorityDataRetrieval</skos:notation>
+        <skos:prefLabel xml:lang="en">Authority Data Retrieval</skos:prefLabel>
+        <rdfs:subClassOf rdf:resource="http://www.cidoc-crm.org/extensions/crmdig/D12_Data_Transfer_Event"/>
+        <rdfs:comment xml:lang="en">The retrieval of an authority record from the provider's service (e.g. a Linked Data endpoint, API or SRU interface) into the local system. Link the retrieved Authority_Data with P16 used specific object, the date of retrieval with P4 has time-span and the source service, as D8 Digital Device identified by a URL, with L15 has sender.</rdfs:comment>
+        <rdfs:comment xml:lang="de">Der Abruf eines Normdatensatzes aus dem Dienst des Anbieters (z. B. Linked-Data-Endpunkt, API oder SRU-Schnittstelle) in das lokale System. Das abgerufene Authority_Data über P16 used specific object, das Abrufdatum über P4 has time-span und den Quelldienst als D8 Digital Device mit URL über L15 has sender verknüpfen.</rdfs:comment>
     </owl:Class>
 
     <owl:Class rdf:about="http://wiss-ki.eu/ontology/default/Authority_Data_Type">
         <rdfs:label xml:lang="en">Authority Data Type</rdfs:label>
+        <rdfs:label xml:lang="de">Normdatentyp</rdfs:label>
         <skos:notation>AuthorityDataType</skos:notation>
         <skos:prefLabel xml:lang="en">Authority Data Type</skos:prefLabel>
         <rdfs:subClassOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E55_Type"/>
-        <rdfs:comment xml:lang="en">Subcategories of authority data.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The type of an authority record within its Authority File, e.g. the GND entity type (person, corporate body, place, work) or the GeoNames feature code. Use P2 has type on Authority_Data.</rdfs:comment>
+    </owl:Class>
+
+    <owl:Class rdf:about="http://wiss-ki.eu/ontology/default/Authority_File">
+        <rdfs:label xml:lang="en">Authority File</rdfs:label>
+        <rdfs:label xml:lang="de">Normdatei</rdfs:label>
+        <skos:notation>AuthorityFile</skos:notation>
+        <skos:prefLabel xml:lang="en">Authority File</skos:prefLabel>
+        <rdfs:subClassOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E32_Authority_Document"/>
+        <rdfs:comment xml:lang="en">An authority file, thesaurus or controlled vocabulary as a whole, e.g. GND, AAT, TGN, ULAN, GeoNames, Wikidata or VIAF. Name it with Preferred_Name and Acronym and link its website with URL (all via P1 is identified by). Its records are instances of Authority_Data (P106 is composed of). The maintaining provider is an E74 Group, linked via P94i was created by E65 Creation P14 carried out by. Entities can be linked directly with P71i is listed in.</rdfs:comment>
+        <rdfs:comment xml:lang="de">Eine Normdatei, ein Thesaurus oder ein kontrolliertes Vokabular als Ganzes, z. B. GND, AAT, TGN, ULAN, GeoNames, Wikidata oder VIAF. Benennung über Preferred_Name und Acronym, Website über URL (jeweils P1 is identified by). Ihre Datensätze sind Instanzen von Authority_Data (P106 is composed of). Der pflegende Anbieter ist eine E74 Group, verknüpft über P94i was created by E65 Creation P14 carried out by. Entitäten können direkt über P71i is listed in verknüpft werden.</rdfs:comment>
+    </owl:Class>
+
+    <owl:Class rdf:about="http://wiss-ki.eu/ontology/default/Authority_Identifier">
+        <rdfs:label xml:lang="en">Authority Identifier</rdfs:label>
+        <rdfs:label xml:lang="de">Normdaten-ID</rdfs:label>
+        <skos:notation>AuthorityIdentifier</skos:notation>
+        <skos:prefLabel xml:lang="en">Authority Identifier</skos:prefLabel>
+        <rdfs:subClassOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E42_Identifier"/>
+        <rdfs:comment xml:lang="en">The identifier of a record within its Authority File, e.g. "118540238" (GND) or "2950159" (GeoNames). Use P3 has note or P190 has symbolic content for the identifier string. The resolvable URI of the record is recorded as URL.</rdfs:comment>
     </owl:Class>
 
     <owl:Class rdf:about="http://wiss-ki.eu/ontology/default/Authority_Term">
         <rdfs:label xml:lang="en">Authority Term</rdfs:label>
+        <rdfs:label xml:lang="de">Ansetzungsform</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E41_Appellation"/>
-        <rdfs:comment xml:lang="en">A form of controlled vocabulary that consists of information on entities.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The authorised (preferred) form of a name or term as given in an authority record, e.g. "Goethe, Johann Wolfgang von". Variant forms of the record are recorded as Alternative_Name.</rdfs:comment>
     </owl:Class>
 
     <owl:Class rdf:about="http://wiss-ki.eu/ontology/default/Begin">
@@ -197,7 +237,7 @@
 
     <owl:Class rdf:about="http://wiss-ki.eu/ontology/default/Comment">
         <rdfs:label xml:lang="en">Comment</rdfs:label>
-        <rdfs:label xml:lang="de">Kommentart</rdfs:label>
+        <rdfs:label xml:lang="de">Kommentar</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E33_Linguistic_Object"/>
         <rdfs:comment xml:lang="en">This class comprises identifiable expressions in natural language or languages that are used to provide additional information about a particular subject.
         </rdfs:comment>
@@ -224,7 +264,7 @@
         <skos:notation>GettyVocabularyType</skos:notation>
         <skos:prefLabel xml:lang="en">Getty Vocabulary Type</skos:prefLabel>
         <rdfs:subClassOf rdf:resource="http://wiss-ki.eu/ontology/default/Authority_Data_Type"/>
-        <rdfs:comment xml:lang="en">Subcategories of Getty Vocabulary (AAT, TGN, ULAN).</rdfs:comment>
+        <rdfs:comment xml:lang="en">Subcategories of Getty Vocabulary (AAT, TGN, ULAN), i.e. the type of a record within the Getty Vocabularies. The vocabularies themselves are instances of Authority_File.</rdfs:comment>
     </owl:Class>
 
     <owl:Class rdf:about="http://wiss-ki.eu/ontology/default/GND_Entity_Type">
@@ -327,7 +367,7 @@
     
     <owl:Class rdf:about="http://wiss-ki.eu/ontology/default/Digital_Media_Creation">
         <rdfs:label xml:lang="en">Digital Media Creation</rdfs:label>
-        <rdfs:label xml:lang="de">Digitale Medieneerstellung</rdfs:label>
+        <rdfs:label xml:lang="de">Digitale Medienerstellung</rdfs:label>
         <skos:notation>DigitalMediaCreation</skos:notation>
         <skos:prefLabel xml:lang="en">Digital Media Creation</skos:prefLabel>
         <rdfs:subClassOf rdf:resource="http://www.cidoc-crm.org/extensions/crmdig/D2_Digitization_Process"/>
@@ -367,7 +407,7 @@
     
     <owl:Class rdf:about="http://wiss-ki.eu/ontology/default/Date_Operator">
         <rdfs:label xml:lang="en">Date Operator</rdfs:label>
-        <rdfs:label xml:lang="en">Datumsoperator</rdfs:label>
+        <rdfs:label xml:lang="de">Datumsoperator</rdfs:label>
         <skos:notation>DateOperator</skos:notation>
         <skos:prefLabel xml:lang="en">Date Operator</skos:prefLabel>
         <rdfs:subClassOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E55_Type"/>
@@ -434,7 +474,7 @@
     </owl:Class>
 
     <owl:Class rdf:about="http://wiss-ki.eu/ontology/default/Audio_File">
-        <rdfs:label xml:lang="en">Image</rdfs:label>
+        <rdfs:label xml:lang="en">Audio</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://wiss-ki.eu/ontology/default/Media_File"/>
         <rdfs:comment xml:lang="en">An audio file is a digital representation of sound that can be stored, processed, and distributed through digital systems.</rdfs:comment>
     </owl:Class>
@@ -538,7 +578,7 @@
     
     <owl:Class rdf:about="http://wiss-ki.eu/ontology/default/Digital_Media_Type">
         <rdfs:label xml:lang="en">Digital Media Type</rdfs:label>
-        <rdfs:label xml:lang="de">Digitales Medientyp</rdfs:label>
+        <rdfs:label xml:lang="de">Digitaler Medientyp</rdfs:label>
         <skos:notation>DigitalMediaType</skos:notation>
         <skos:prefLabel xml:lang="en">Digital Media Type</skos:prefLabel>
         <rdfs:subClassOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E55_Type"/>
