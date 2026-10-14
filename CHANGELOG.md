@@ -6,6 +6,36 @@ Published versions: `https://wiss-ki.eu/sites/default/files/ontology/wisski/<ver
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versions follow [Semantic Versioning](https://semver.org/).
 Class and property names are given without namespace; `crm:` = `http://www.cidoc-crm.org/cidoc-crm/`, `crmdig:` = `http://www.cidoc-crm.org/extensions/crmdig/`, `lrmoo:` = `http://iflastandards.info/ns/lrm/lrmoo/`.
 
+## [2.7.0] – unreleased
+
+Annotations get a semantic model based only on CIDOC CRM and CRMdig, so that annotations drawn in the IIIF viewer (Mirador) can be stored as WissKI individuals and queried in the triplestore.
+
+```
+Annotation (D29) ── P1 is identified by ──▶ UUID ── P3 has note ──▶ "3f2b…"
+                 ├─ P190 has symbolic content ──▶ "{…JSON…}"                       serialisation
+                 ├─ P106 is composed of ──▶ Annotation_Text (E33) ── P3 has note ──▶ text
+                 ├─ L43 annotates ──▶ Annotated_Area (D35 Area)
+                 │                     ├─ P190 has symbolic content ──▶ "<svg …>"
+                 │                     └─ L49 is primary area of ──▶ Image_File ── P1 is identified by ──▶ URL ── P3 has note ──▶ file URL
+                 └─ L48i was annotation created by ──▶ D30 Annotation Event
+                                                        ├─ P14 carried out by ──▶ E21 Person ── P1 is identified by ──▶ E41 Appellation ── P3 has note ──▶ creator
+                                                        └─ P4 has time-span ──▶ E52 ── P82 at some time within ──▶ "2026-10-14T20:57:00Z"
+```
+
+Only CIDOC CRM and CRMdig properties are used. Values are given with `P3 has note`, except the creation time (`P82 at some time within`) and the symbolic content of the annotation (JSON) and of its area (SVG), which use `P190 has symbolic content`. The area keeps only the SVG geometry: a second `P190` value on the same class could not be told apart from it, and a rectangle (`xywh=…`) is an SVG `rect`.
+
+The geometry of an area is not a separate entity: `D35 Area` is a symbolic object (via `D1` ⊑ `E73` ⊑ `E90`), and its SVG geometry is its symbolic content, like the coordinates of a METS `AREA`. The model is limited to what is needed to store and find an annotation: identifier, serialisation, text, area and image, creator and creation time. Everything else (motivation, styling, replies) stays in the serialisation. Creator and creation time use the CRMdig `D30 Annotation Event` directly; no new class is needed. The creator is a plain `E21 Person` with a name, not linked to other person records.
+
+The area belongs to the image, not to a IIIF canvas: a WissKI canvas URI depends on the manifest of one entity and the position of the image in it, while canvas size equals image size, so the coordinates are image pixels.
+
+### Added
+- `Annotated_Area` ⊑ `crmdig:D35_Area`: the annotated area of an image (`L49 is primary area of` `Image_File`).
+- `Annotation_Text` ⊑ `crm:E33_Linguistic_Object`: the text of an annotation.
+- Ontology header: annotations listed among the covered areas.
+
+### Changed
+- `Annotation` is now a subclass of `crmdig:D29_Annotation_Object` instead of `crm:E73_Information_Object` (not breaking: `D29` ⊑ `E89` ⊑ `E73`). Comment describes the intended paths; German comment added.
+
 ## [2.6.0] – unreleased
 
 Authority data is remodelled: an authority record is no longer a type but a document that is part of an authority file.
@@ -179,6 +209,7 @@ Initial release. Namespace `http://wiss-ki.eu/ontology/`, CIDOC CRM 7.1.2 embedd
 - `PreferredName`, `SpatialCoordinates` ⊑ `crm:E41_Appellation`; `URL` ⊑ `crm:E42_Identifier`.
 - `HumanMadeObjectInformation` ⊑ `crm:E13_Attribute_Assignment`; `Status` ⊑ `crm:E55_Type`.
 
+[2.7.0]: https://wiss-ki.eu/sites/default/files/ontology/wisski/2.7.0.owl
 [2.6.0]: https://wiss-ki.eu/sites/default/files/ontology/wisski/2.6.0.owl
 [2.5.0]: https://wiss-ki.eu/sites/default/files/ontology/wisski/2.5.0.owl
 [2.4.0]: https://wiss-ki.eu/sites/default/files/ontology/wisski/2.4.0.owl
