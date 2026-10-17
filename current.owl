@@ -246,6 +246,16 @@
         <rdfs:comment xml:lang="en">Structured bibliographic metadata for a publication: place, date, publisher, volume, edition, and extra notes. Use P3 has note for the combined or structured content.</rdfs:comment>
     </owl:Class>
 
+    <owl:Class rdf:about="http://wiss-ki.eu/ontology/default/Canvas">
+        <rdfs:label xml:lang="en">Canvas</rdfs:label>
+        <rdfs:label xml:lang="de">Canvas</rdfs:label>
+        <skos:notation>Canvas</skos:notation>
+        <skos:prefLabel xml:lang="en">Canvas</skos:prefLabel>
+        <rdfs:subClassOf rdf:resource="http://wiss-ki.eu/ontology/default/Digital_Media"/>
+        <rdfs:comment xml:lang="en">One page of an IIIF manifest, not the image file. An entity with several files has one canvas per file. Its address is the canvas document, for example /wisski/42/sequence/normal/0/seite1.png/normal.json. An Annotation refers to it with P67 refers to. Identify it with URL (P1 is identified by, value with P3 has note) and reuse the canvas individual for the same address. The coordinates of an Annotated_Area are pixels of this page. The image file itself is an Image_File.</rdfs:comment>
+        <rdfs:comment xml:lang="de">Eine Seite eines IIIF-Manifests, nicht die Bilddatei. Eine Entität mit mehreren Dateien hat ein Canvas pro Datei. Ihre Adresse ist das Canvas-Dokument, zum Beispiel /wisski/42/sequence/normal/0/seite1.png/normal.json. Eine Annotation verweist darauf mit P67 refers to. Identifikation über URL (P1 is identified by, Wert über P3 has note); dasselbe Canvas-Individuum wird bei derselben Adresse wiederverwendet. Die Koordinaten einer Annotated_Area sind Pixel dieser Seite. Die Bilddatei selbst ist ein Image_File.</rdfs:comment>
+    </owl:Class>
+
     <owl:Class rdf:about="http://wiss-ki.eu/ontology/default/Custom_Term_Payload">
         <rdfs:label xml:lang="en">Custom Term Payload</rdfs:label>
         <rdfs:label xml:lang="de">Benutzerdefinierte Begriffsdaten</rdfs:label>
