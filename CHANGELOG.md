@@ -17,6 +17,7 @@ Annotation (D29) ── P1 is identified by ──▶ UUID ── P3 has note �
                  ├─ L43 annotates ──▶ Annotated_Area (D35 Area)
                  │                     ├─ P190 has symbolic content ──▶ "<svg …>"
                  │                     └─ L49 is primary area of ──▶ Image_File ── P1 is identified by ──▶ URL ── P3 has note ──▶ file URL
+                 ├─ P67 refers to ──▶ Canvas ── P1 is identified by ──▶ URL ── P3 has note ──▶ canvas URL
                  └─ L48i was annotation created by ──▶ D30 Annotation Event
                                                         ├─ P14 carried out by ──▶ E21 Person ── P1 is identified by ──▶ E41 Appellation ── P3 has note ──▶ creator
                                                         └─ P4 has time-span ──▶ E52 ── P82 at some time within ──▶ "2026-10-14T20:57:00Z"
@@ -24,13 +25,14 @@ Annotation (D29) ── P1 is identified by ──▶ UUID ── P3 has note �
 
 Only CIDOC CRM and CRMdig properties are used. Values are given with `P3 has note`, except the creation time (`P82 at some time within`) and the symbolic content of the annotation (JSON) and of its area (SVG), which use `P190 has symbolic content`. The area keeps only the SVG geometry: a second `P190` value on the same class could not be told apart from it, and a rectangle (`xywh=…`) is an SVG `rect`.
 
-The geometry of an area is not a separate entity: `D35 Area` is a symbolic object (via `D1` ⊑ `E73` ⊑ `E90`), and its SVG geometry is its symbolic content, like the coordinates of a METS `AREA`. The model is limited to what is needed to store and find an annotation: identifier, serialisation, text, area and image, creator and creation time. Everything else (motivation, styling, replies) stays in the serialisation. Creator and creation time use the CRMdig `D30 Annotation Event` directly; no new class is needed. The creator is a plain `E21 Person` with a name, not linked to other person records.
+The geometry of an area is not a separate entity: `D35 Area` is a symbolic object (via `D1` ⊑ `E73` ⊑ `E90`), and its SVG geometry is its symbolic content, like the coordinates of a METS `AREA`. The model is limited to what is needed to store and find an annotation: identifier, serialisation, text, area and image, canvas, creator and creation time. Everything else (motivation, styling, replies) stays in the serialisation. Creator and creation time use the CRMdig `D30 Annotation Event` directly; no new class is needed. The creator is a plain `E21 Person` with a name, not linked to other person records.
 
-The area belongs to the image, not to a IIIF canvas: a WissKI canvas URI depends on the manifest of one entity and the position of the image in it, while canvas size equals image size, so the coordinates are image pixels.
+The annotation refers to the IIIF canvas it was drawn on (`P67 refers to` `Canvas`): one page of a manifest, identified by the canvas document URL and reused for that address. The area still belongs to the image file (`L49 is primary area of` `Image_File`). Canvas size equals image size, so the coordinates are pixels of that page.
 
 ### Added
 - `Annotated_Area` ⊑ `crmdig:D35_Area`: the annotated area of an image (`L49 is primary area of` `Image_File`).
 - `Annotation_Text` ⊑ `crm:E33_Linguistic_Object`: the text of an annotation.
+- `Canvas` ⊑ `Digital_Media`: one page of an IIIF manifest, not the image file (`Annotation` `P67 refers to`). Identified by its canvas URL; the same individual is reused for the same address.
 - Ontology header: annotations listed among the covered areas.
 
 ### Changed
