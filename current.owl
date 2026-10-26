@@ -128,7 +128,16 @@
         <rdfs:comment xml:lang="en">The alternative name of an entity.</rdfs:comment>
     </owl:Class>
 
-    
+    <owl:Class rdf:about="http://wiss-ki.eu/ontology/default/Alternative_Text">
+        <rdfs:label xml:lang="en">Alternative Text</rdfs:label>
+        <rdfs:label xml:lang="de">Alternativtext</rdfs:label>
+        <skos:notation>AlternativeText</skos:notation>
+        <skos:prefLabel xml:lang="en">Alternative Text</skos:prefLabel>
+        <rdfs:subClassOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E33_Linguistic_Object"/>
+        <rdfs:comment xml:lang="en">The alternative text of an image, a textual substitute for the visual content. Linked from Image_File via P129i is subject of; the text itself is given with P3 has note. Distinct from Description, which describes features of the media file.</rdfs:comment>
+        <rdfs:comment xml:lang="de">Der Alternativtext eines Bildes, ein textlicher Ersatz für den Bildinhalt. Verknüpft von Image_File über P129i is subject of; der Text selbst über P3 has note. Zu unterscheiden von Description, die Merkmale der Mediendatei beschreibt.</rdfs:comment>   
+     </owl:Class>
+
     <owl:Class rdf:about="http://wiss-ki.eu/ontology/default/Analysis">
         <rdfs:label xml:lang="en">Analysis</rdfs:label>
         <rdfs:label xml:lang="de">Analyse</rdfs:label>
@@ -328,6 +337,15 @@
         <skos:prefLabel xml:lang="en">Cultural Heritage Item Assignment</skos:prefLabel>
         <rdfs:subClassOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E13_Attribute_Assignment"/>
         <rdfs:comment xml:lang="en">An event or activity in which a Cultural Heritage Item is assigned to a person, collection, place, event, or other context for the purposes of documentation, management, exhibition, or curation. This class captures the association of a cultural heritage object with some role, location, actor, or function during its lifecycle.</rdfs:comment>
+    </owl:Class>
+
+    <owl:Class rdf:about="http://wiss-ki.eu/ontology/default/Cultural_Heritage_Item_Type">
+        <rdfs:label xml:lang="en">Cultural Heritage Item Type</rdfs:label>
+        <rdfs:label xml:lang="de">Kulturgutobjekttyp</rdfs:label>
+        <skos:notation>CulturalHeritageItemType</skos:notation>
+        <skos:prefLabel xml:lang="en">Cultural Heritage Item Type</skos:prefLabel>
+        <rdfs:subClassOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E55_Type"/>
+        <rdfs:comment xml:lang="en">The type of a Cultural Heritage Item, e.g. painting, sculpture, furniture, vessel, textile, architectural element. Use with P2 has type.</rdfs:comment>
     </owl:Class>
     
     <owl:Class rdf:about="http://wiss-ki.eu/ontology/default/Cultural_Heritage_Work">
