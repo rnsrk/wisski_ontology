@@ -33,6 +33,7 @@ The annotation refers to the IIIF canvas it was drawn on (`P67 refers to` `Canva
 - `Annotated_Area` ⊑ `crmdig:D35_Area`: the annotated area of an image (`L49 is primary area of` `Image_File`).
 - `Annotation_Text` ⊑ `crm:E33_Linguistic_Object`: the text of an annotation.
 - `Canvas` ⊑ `Digital_Media`: one page of an IIIF manifest, not the image file (`Annotation` `P67 refers to`). Identified by its canvas URL; the same individual is reused for the same address.
+- `Address_Assignment` ⊑ `crm:E13_Attribute_Assignment`: assigns an address to an entity. The address is an `E53 Place` (`P141 assigned`), named with `Preferred_Name` or `Alternative_Name`; the entity is linked with `P140 assigned attribute to`. `Place_Type` distinguishes street address, postal address and similar.
 - `Cultural_Heritage_Item_Type` ⊑ `crm:E55_Type`: the type of a Cultural Heritage Item (object type / object appellation via `P2 has type`). Replaces the former path that used `Authority_Data` as type target before 2.6.0.
 - Ontology header: annotations listed among the covered areas.
 
