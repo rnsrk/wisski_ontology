@@ -403,7 +403,7 @@
     <owl:Class rdf:about="http://wiss-ki.eu/ontology/default/Data_Record">
         <rdfs:label xml:lang="en">Data Record</rdfs:label>
         <skos:prefLabel xml:lang="en">Data Record</skos:prefLabel>
-        <rdfs:subClassOf rdf:resource="http://www.cidoc-crm.org/extensions/crmdig/D9_Data_Object"/>
+        <rdfs:subClassOf rdf:resource="http://www.cidoc-crm.org/extensions/crmdig/D1_Digital_Object"/>
         <rdfs:comment xml:lang="en">A record of data created by the process of digitization.</rdfs:comment>
     </owl:Class>
 
@@ -470,7 +470,8 @@
         <skos:notation>DateOperator</skos:notation>
         <skos:prefLabel xml:lang="en">Date Operator</skos:prefLabel>
         <rdfs:subClassOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E55_Type"/>
-        <rdfs:comment xml:lang="en"></rdfs:comment>
+        <rdfs:comment xml:lang="en">A qualifier that sets how a date relates to the time it describes, e.g. before, after, around, from, until.</rdfs:comment>
+        <rdfs:comment xml:lang="de">Ein Zusatz, der angibt, wie sich ein Datum auf die beschriebene Zeit bezieht, z. B. vor, nach, um, ab, bis.</rdfs:comment>
     </owl:Class>
 
     <owl:Class rdf:about="http://wiss-ki.eu/ontology/default/Day">
@@ -628,7 +629,7 @@
         <rdfs:label xml:lang="en">Media File</rdfs:label>
         <skos:notation>MediaFile</skos:notation>
         <skos:prefLabel xml:lang="en">Media File</skos:prefLabel>
-        <rdfs:subClassOf rdf:resource="http://www.cidoc-crm.org/extensions/crmdig/D9_Data_Object"/>
+        <rdfs:subClassOf rdf:resource="http://www.cidoc-crm.org/extensions/crmdig/D1_Digital_Object"/>
         <rdfs:comment xml:lang="en">This class comprises digital files containing media content such as images, audio, video, or other multimedia formats.
     These files are stored in digital form and can be accessed, processed, and disseminated through digital systems. The class includes both original media files and their digital reproductions or derivatives.
         </rdfs:comment>
@@ -929,6 +930,50 @@
         <rdfs:comment xml:lang="en">The status of an entity, e.g. published, draft, current, deprecated, option, version etc.</rdfs:comment>
     </owl:Class>
 
+    <owl:Class rdf:about="http://wiss-ki.eu/ontology/default/Time_Appellation">
+        <rdfs:label xml:lang="en">Time Appellation</rdfs:label>
+        <rdfs:label xml:lang="de">Zeitbezeichnung</rdfs:label>
+        <skos:notation>TimeAppellation</skos:notation>
+        <skos:prefLabel xml:lang="en">Time Appellation</skos:prefLabel>
+        <rdfs:subClassOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E41_Appellation"/>
+        <rdfs:comment xml:lang="en">The recorded designation of a time-span, e.g. an EDTF string such as "1900/1910" or "[1900,1904,=(1908)]", a historical period name, or a free-text date. Linked from Time_Expression (or another E52 Time-Span) by P78 is identified by; the text itself is given with P3 has note.</rdfs:comment>
+        <rdfs:comment xml:lang="de">Die erfasste Bezeichnung einer Zeitspanne, z. B. ein EDTF-String wie „1900/1910“ oder „[1900,1904,=(1908)]“, ein historischer Periodenname oder ein Freitext-Datum. Verknüpft von Time_Expression (oder einer anderen E52 Time-Span) über P78 is identified by; der Text selbst über P3 has note.</rdfs:comment>
+    </owl:Class>
+
+    <owl:Class rdf:about="http://wiss-ki.eu/ontology/default/Time_Expression">
+        <rdfs:label xml:lang="en">Time Expression</rdfs:label>
+        <rdfs:label xml:lang="de">Zeitausdruck</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E52_Time-Span"/>
+        <rdfs:comment xml:lang="en" rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The time-span of a dated entity as it was recorded, e.g. the EDTF value "1900/1910" or "[1900,1904,=(1908)]". It is the envelope around one or more Date instances, which it contains by P86i contains. Its outer bounds (P82a, P82b) run from the earliest begin to the latest end of those dates. Use Time_Expression_Type (P2 has type) to say whether all or exactly one of the dates apply. The recorded text is a Time_Appellation linked by P78 is identified by.</rdfs:comment>
+        <rdfs:comment xml:lang="de" rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Die Zeitspanne eines datierten Objekts, wie sie erfasst wurde, z. B. der EDTF-Wert „1900/1910“ oder „[1900,1904,=(1908)]“. Sie ist die Hülle um ein oder mehrere Datum-Instanzen, die sie über P86i enthält. Ihre äußeren Grenzen (P82a, P82b) reichen vom frühesten Beginn bis zum spätesten Ende dieser Daten. Time_Expression_Type (P2 has type) sagt, ob alle oder genau eines der Daten gelten. Der erfasste Text ist eine Time_Appellation über P78 is identified by.</rdfs:comment>
+    </owl:Class>
+
+    <owl:Class rdf:about="http://wiss-ki.eu/ontology/default/Time_Expression_Type">
+        <rdfs:label xml:lang="en">Time Expression Type</rdfs:label>
+        <rdfs:label xml:lang="de">Zeitausdruckstyp</rdfs:label>
+        <skos:notation>TimeExpressionType</skos:notation>
+        <skos:prefLabel xml:lang="en">Time Expression Type</skos:prefLabel>
+        <rdfs:subClassOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E55_Type"/>
+        <rdfs:comment xml:lang="en">The type of a Time Expression, indicating how its contained Date instances relate, e.g. all dates apply, or exactly one of the dates applies.</rdfs:comment>
+        <rdfs:comment xml:lang="de">Der Typ eines Zeitausdrucks, der angibt, wie die enthaltenen Datum-Instanzen zusammenhängen, z. B. alle Daten gelten oder genau eines der Daten gilt.</rdfs:comment>
+    </owl:Class>
+
+ <owl:Class rdf:about="http://wiss-ki.eu/ontology/default/Statement_Annotation">
+        <rdfs:label xml:lang="en">Statement annotation</rdfs:label>
+        <rdfs:label xml:lang="de">Aussagenannotation</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E1_CRM_Entity"/>
+        <rdfs:comment xml:lang="en">A statement about one triple, written as an RDF 1.2 reifier of that triple. It carries the value of a WissKI annotation field.</rdfs:comment>
+        <rdfs:comment xml:lang="de">Eine Aussage über ein Tripel, geschrieben als RDF-1.2-Reifier dieses Tripels. Sie trägt den Wert eines WissKI-Annotationsfelds.</rdfs:comment>
+    </owl:Class>
+
+    <owl:Class rdf:about="http://wiss-ki.eu/ontology/default/Uncertainty_Annotation">
+        <rdfs:label xml:lang="en">Uncertainty annotation</rdfs:label>
+        <rdfs:label xml:lang="de">Unsicherheitsannotation</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://wiss-ki.eu/ontology/default/Statement_Annotation"/>
+        <rdfs:comment xml:lang="en">A statement about how sure one triple is, for example that a time-span bound is approximate or uncertain. An annotated triple without it counts as certain.</rdfs:comment>
+        <rdfs:comment xml:lang="de">Eine Aussage darüber, wie sicher ein Tripel ist, zum Beispiel dass eine Grenze eines Zeitraums ungefähr oder unsicher ist. Ein annotiertes Tripel ohne sie gilt als sicher.</rdfs:comment>
+    </owl:Class>
+
     <owl:Class rdf:about="http://wiss-ki.eu/ontology/default/Title_Assignment">
       <rdfs:label xml:lang="en">Title Assignment</rdfs:label>
       <rdfs:subClassOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E13_Attribute_Assignment"/>
@@ -1015,6 +1060,24 @@
         <rdfs:label xml:lang="de">beinhaltet ein Datum</rdfs:label>
         <rdfs:domain rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E52_Time-Span"/>
         <rdfs:range rdf:resource="http://wiss-ki.eu/ontology/default/Date"/>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="http://wiss-ki.eu/ontology/default/has_begin_date">
+        <rdfs:label xml:lang="en">has begin date</rdfs:label>
+        <rdfs:label xml:lang="de">hat Anfangsdatum</rdfs:label>
+        <rdfs:domain rdf:resource="http://wiss-ki.eu/ontology/default/Date_Period"/>
+        <rdfs:range rdf:resource="http://wiss-ki.eu/ontology/default/Date"/>
+        <rdfs:comment xml:lang="en">The date on which a Date_Period begins. No CIDOC CRM property fits as superproperty: P4 has time-span allows only one time-span per period, which would be neither the begin nor the end date.</rdfs:comment>
+        <rdfs:comment xml:lang="de">Das Datum, an dem ein Date_Period beginnt.</rdfs:comment>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="http://wiss-ki.eu/ontology/default/has_end_date">
+        <rdfs:label xml:lang="en">has end date</rdfs:label>
+        <rdfs:label xml:lang="de">hat Enddatum</rdfs:label>
+        <rdfs:domain rdf:resource="http://wiss-ki.eu/ontology/default/Date_Period"/>
+        <rdfs:range rdf:resource="http://wiss-ki.eu/ontology/default/Date"/>
+        <rdfs:comment xml:lang="en">The date on which a Date_Period ends. See has_begin_date for why no CIDOC CRM superproperty is used.</rdfs:comment>
+        <rdfs:comment xml:lang="de">Das Datum, an dem ein Date_Period endet.</rdfs:comment>
     </owl:ObjectProperty>
 
     <owl:ObjectProperty rdf:about="http://wiss-ki.eu/ontology/default/has_digital_carrier">

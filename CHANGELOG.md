@@ -31,16 +31,27 @@ The annotation refers to the IIIF canvas it was drawn on (`P67 refers to` `Canva
 
 ### Added
 - `Annotated_Area` ⊑ `crmdig:D35_Area`: the annotated area of an image (`L49 is primary area of` `Image_File`).
-- `Annotation_Text` ⊑ `crm:E33_Linguistic_Object`: the text of an annotation.
+- `Annotation_Text` ⊑ `crm:E33_Linguistic_Object`: the text of an annotation (`P106 is composed of` from `Annotation`).
 - `Canvas` ⊑ `Digital_Media`: one page of an IIIF manifest, not the image file (`Annotation` `P67 refers to`). Identified by its canvas URL; the same individual is reused for the same address.
+- `Alternative_Text` ⊑ `crm:E33_Linguistic_Object`: alternative text of an image (`Image_File` `P129i is subject of`; value with `P3 has note`). Distinct from `Description`.
 - `Address_Assignment` ⊑ `crm:E13_Attribute_Assignment`: assigns an address to an entity. The address is an `E53 Place` (`P141 assigned`), named with `Preferred_Name` or `Alternative_Name`; the entity is linked with `P140 assigned attribute to`. `Place_Type` distinguishes street address, postal address and similar.
-- `Cultural_Heritage_Item_Type` ⊑ `crm:E55_Type`: the type of a Cultural Heritage Item (object type / object appellation via `P2 has type`). Replaces the former path that used `Authority_Data` as type target before 2.6.0.
-- Ontology header: annotations listed among the covered areas.
+- `Cultural_Heritage_Item_Type` ⊑ `crm:E55_Type`: the type of a Cultural Heritage Item (object type via `P2 has type`). Replaces the former path that used `Authority_Data` as type target before 2.6.0.
+- `Time_Appellation` ⊑ `crm:E41_Appellation`: the recorded designation of a time-span (EDTF, period name, free-text date). Linked from `Time_Expression` by `P78 is identified by`; value with `P3 has note`.
+- `Time_Expression` ⊑ `crm:E52_Time-Span`: envelope around one or more `Date` instances (`P86i contains`); outer bounds via `P82a`/`P82b`; recorded text via `Time_Appellation`; typed with `Time_Expression_Type`.
+- `Time_Expression_Type` ⊑ `crm:E55_Type`: how the dates in a `Time_Expression` relate (e.g. all apply, or exactly one applies) via `P2 has type`.
+- `Statement_Annotation` ⊑ `crm:E1_CRM_Entity`: a statement about one triple, written as an RDF 1.2 reifier of that triple; carries the value of a WissKI annotation field.
+- `Uncertainty_Annotation` ⊑ `Statement_Annotation`: how sure one triple is (e.g. approximate or uncertain time-span bound); a triple without it counts as certain.
+- Ontology header: annotations and address assignment listed among the covered areas; `owl:priorVersion` → 2.6.0.
+- `has_begin_date` and `has_end_date` (`Date_Period` → `Date`): the begin and end date of a `Date_Period`, which its comment already named. No CRM superproperty, since `P4 has time-span` allows one time-span per period.
 
 ### Changed
 - `Annotation` is now a subclass of `crmdig:D29_Annotation_Object` instead of `crm:E73_Information_Object` (not breaking: `D29` ⊑ `E89` ⊑ `E73`). Comment describes the intended paths; German comment added.
+- `Data_Record` and `Media_File` are now subclasses of `crmdig:D1_Digital_Object` instead of `crmdig:D9_Data_Object`, which CRMdig reserves for results of digital measurements (`D9` ⊑ `E54 Dimension`). Not breaking: `D9` ⊑ `D1`.
 
-## [2.6.0] – unreleased
+### Fixed
+- `Date_Operator`: comment added (en, de).
+
+## [2.6.0]
 
 Authority data is remodelled: an authority record is no longer a type but a document that is part of an authority file.
 
@@ -101,6 +112,7 @@ WHERE  { ?record a wisski:Authority_Data . ?entity crm:P2_has_type ?record . }
 Pathbuilder paths that pass through `Authority_Data` via `P2 has type` must be rebuilt accordingly.
 
 ### Known issues
+All fixed in 2.7.0.
 - `Date_Period` refers to `has_begin_date` / `has_end_date`, which are not defined in the ontology.
 - `Data_Record` is a subclass of `crmdig:D9_Data_Object`, which CRMdig restricts to results of digital measurements (D9 ⊑ E54 Dimension).
 - `Date_Operator` has an empty comment.
